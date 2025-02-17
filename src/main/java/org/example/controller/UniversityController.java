@@ -3,6 +3,7 @@ package org.example.controller;
 import org.example.service.UniversityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,11 +14,8 @@ public class UniversityController {
 
     private static final Logger logger = LoggerFactory.getLogger(UniversityController.class);
 
-    private final UniversityService universityService;
-
-    public UniversityController(UniversityService universityService) {
-        this.universityService = universityService;
-    }
+    @Autowired
+    private UniversityService universityService;
 
     @GetMapping("/hello")
     public String helloCourse() {
